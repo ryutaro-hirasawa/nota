@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: nota_production
-  username: nota
-  password: <%= ENV['NOTA_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
