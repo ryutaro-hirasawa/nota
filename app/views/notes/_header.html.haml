@@ -1,0 +1,16 @@
+.header
+  .header_main
+    .header_main__left
+      %p.title Nota
+    .header_main__center
+      = form_with url: "#", local: true, method: :get, class: "search_form" do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search_form_input"
+        = button_tag type: "submit", class: "search_form_btn" do
+          %h1.searchtext 検索
+    .header_main__right
+      = link_to '詳細検索',"#", class: "search_detail"
+  .header_sub
+    .header_sub__login
+      = link_to 'ログイン', "#", class: "login_btn"
+    .header_sub__register
+      = link_to '新規登録', "#", class: "register_login"

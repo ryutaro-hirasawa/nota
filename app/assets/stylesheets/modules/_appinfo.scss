@@ -1,0 +1,30 @@
+.appinfo{
+  background-image: image-url("appinfo.jpg");
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+  .info_text{
+    text-align: center;
+    color: black;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+    .info_first{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .info_second{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+
+    .info_third {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+    }
+  }
+}
