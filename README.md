@@ -1,24 +1,60 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|mail|string|null: false, unique: true|
+|password|string|null: false|
 
-Things you may want to cover:
+### Association
+has_many :notes
+has_many :comments
+has_many :favorites
 
-* Ruby version
+## notesテーブル
 
-* System dependencies
+|Column|Type|Options|
+|------|----|-------|
+|title|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|status|string|null: false|
+|subject|string|null: false|
+|text|text|null: false|
 
-* Configuration
+### Association
+belongs_to :user
+has_many :comments
+has_many :favorites
 
-* Database creation
+### imageテーブル
 
-* Database initialization
+|Column|Type|Options|
+|------|----|-------|
+|src|string||
+|note_id|integer|null: false|
 
-* How to run the test suite
+### Association
+belongs_to :note
 
-* Services (job queues, cache servers, search engines, etc.)
+## commentsテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|comment|text|null:false|
+|user_id|integer|null:false,foreign_key:true|
+|note_id|integer|null:false,foreign_key:true|
 
-* ...
+### Association
+belongs_to :user
+belongs_to :note
+
+## favoritesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false,foreign_key:true|
+|note_id|integer|null:false,foreign_key:true|
+
+### Association
+belongs_to :user
+belongs_to :note
