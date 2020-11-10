@@ -1,0 +1,23 @@
+= render "notes/header"
+.main_login
+  .new_login
+    %h2.new_login_title ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :メールアドレス, class: "new_register_info"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "new_login_form"
+      .field
+        = f.label :パスワード, class: "new_register_info"
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class: "new_login_form"
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :次回から自動でログインします
+      .actions
+        = f.submit "ログイン", class: "new_login_btn"
+      = link_to  new_user_password_path do
+        %h.new_password_title パスワードを忘れた場合はこちら
+= render "notes/appbanner"
+= render "notes/footer"
