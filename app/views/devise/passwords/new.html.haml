@@ -1,0 +1,14 @@
+= render "notes/header"
+.main_forget
+  .new_forget
+    %h2.new_forget_title パスワードを忘れた場合
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :メールアドレス, class: "new_forget_info"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "new_forget_form"
+      .actions
+        = f.submit "送信", class: "new_forget_btn"
+= render "notes/appbanner"
+= render "notes/footer"

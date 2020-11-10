@@ -1,7 +1,8 @@
 .header
   .header_main
     .header_main__left
-      %p.title Nota
+      = link_to root_path do
+        %p.title Nota
     .header_main__center
       = form_with url: "#", local: true, method: :get, class: "search_form" do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search_form_input"
@@ -10,7 +11,13 @@
     .header_main__right
       = link_to '詳細検索',"#", class: "search_detail"
   .header_sub
-    .header_sub__login
-      = link_to 'ログイン', "#", class: "login_btn"
-    .header_sub__register
-      = link_to '新規登録', "#", class: "register_login"
+    - if user_signed_in?
+      .header_sub__login
+        = link_to 'ログアウト', destroy_user_session_path, class: "logout_btn"
+      .header_sub__register
+        = link_to '新規投稿', "#", class: "post_btn"
+    - else
+      .header_sub__login
+        = link_to 'ログイン', new_user_session_path, class: "login_btn"
+      .header_sub__register
+        = link_to '新規登録', new_user_registration_path, class: "register_login"
