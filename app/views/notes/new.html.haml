@@ -1,0 +1,42 @@
+= render "notes/header"
+.main_note
+  .main_note_post
+    %h.post_info ノート投稿
+  .main_note_center
+    = form_with(model: @note, local: true)do |f|
+      .field
+        = f.label :ノートタイトル, class: "note_title"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.text_field :title, autofocus: true, class: "note_title_form", placeholder: "例）高2英文法"
+
+      .field
+        = f.label :ノート画像, class: "note_image"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.fields_for :images do |i|
+          = i.file_field :src, class: "note_imafe_form"
+
+      .field
+        = f.label :対象, class: "note_status"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.select :status, {'小学生': 1, '中学生': 2, '高校生': 3, '大学生': 4, '社会人': 5}, { include_blank: '選択してください'}, { class: 'note_status_form' , required: true }
+
+      .field
+        = f.label :科目, class: "note_subject"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.select :subject, {'英語': 1, '数学': 2, '国語': 3, '理科': 4, '社会': 5}, { include_blank: '選択してください'}, { class: 'note_subject_form' , required: true }
+
+      .field
+        = f.label :科目, class: "note_text"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.text_area :text, autofocus: true, class: "note_text_form", placeholder: "例）高校2年で関習った係代名詞をまとめたノートです。"
+
+      .actions
+        = f.submit "投稿する", class: "note_btn"
+
+= render "notes/appbanner"
+= render "notes/footer"

@@ -15,7 +15,7 @@ has_many :favorites
 
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false|
+|title|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |status|string|null: false|
 |subject|string|null: false|
@@ -23,6 +23,7 @@ has_many :favorites
 
 ### Association
 belongs_to :user
+has_many :images
 has_many :comments
 has_many :favorites
 
