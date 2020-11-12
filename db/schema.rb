@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_11_11_000852) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src", null: false
-    t.integer "note_id", null: false
+    t.string "src"
+    t.integer "note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "user_id", null: false
-    t.string "status", null: false
-    t.string "subject", null: false
-    t.text "text", null: false
+    t.string "title"
+    t.integer "user_id"
+    t.string "status"
+    t.string "subject"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

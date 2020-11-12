@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.all
+    @notes = Note.includes(:images).order('created_at DESC')
   end
 
   def new
@@ -10,7 +10,8 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    if @note.save
+    if @note.valid?
+      @note.save
       redirect_to root_path
     else
       render :new
