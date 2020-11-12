@@ -1,0 +1,47 @@
+= render "notes/header"
+.main_note
+  .new_note
+    %h.post_info ノート投稿
+    = form_with(model: @note, local: true)do |f|
+      .field
+        = f.label :ノートタイトル, class: "new_note_info"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.text_field :title, autofocus: true, class: "new_note_form", placeholder: "例）高2英文法"
+
+      .field
+        = f.label :ノート画像（最大4枚まで投稿可能）, class: "new_note_info"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        #image_box
+          .note-num-0#image-box__container
+            = f.fields_for :images do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+                = i.file_field :src, class: "js-file", type: 'file', name: "note[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+              %br/
+              %span.js-remove
+        %label{for: "img-file"}
+          %i.fas.fa-camera
+      .field
+        = f.label :対象, class: "new_note_info"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.select :status, {'小学生': 1, '中学生': 2, '高校生': 3, '大学生': 4, '社会人': 5}, { include_blank: '選択してください'}, { class: 'note_status_form' , required: true }
+
+      .field
+        = f.label :科目, class: "new_note_info"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.select :subject, {'英語': 1, '数学': 2, '国語': 3, '理科': 4, '社会': 5}, { include_blank: '選択してください'}, { class: 'note_subject_form' , required: true }
+
+      .field
+        = f.label :ノート説明, class: "new_note_info"
+        %span.sign-up-content__main__form__group__require 必須
+        %br/
+        = f.text_area :text, autofocus: true, class: "new_note_text", placeholder: "例）高校2年で関習った係代名詞をまとめたノートです。"
+
+      .actions
+        = f.submit "投稿する", class: "new_note_btn"
+
+= render "notes/appbanner"
+= render "notes/footer"

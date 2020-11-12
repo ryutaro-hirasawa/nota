@@ -15,7 +15,7 @@
       .header_sub__login
         = link_to 'ログアウト', destroy_user_session_path, class: "logout_btn"
       .header_sub__register
-        = link_to '新規投稿', "#", class: "post_btn"
+        = link_to '新規投稿', new_note_path, class: "post_btn"
     - else
       .header_sub__login
         = link_to 'ログイン', new_user_session_path, class: "login_btn"
