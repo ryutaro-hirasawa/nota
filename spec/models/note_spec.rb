@@ -3,7 +3,7 @@ describe Note do
   describe '#create' do
 
     it '必須項目が全て入力できていたら投稿可' do
-      Image = FactoryBot.create(:image).id
+      # Image = FactoryBot.create(:image).id
       note = build(:note)
       expect(note).to be_valid
     end

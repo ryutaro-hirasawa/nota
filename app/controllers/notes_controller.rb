@@ -5,11 +5,11 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
-    @note.images.new
   end
 
   def create
     @note = Note.new(note_params)
+    # binding.pry
     if @note.valid?
       @note.save
       redirect_to root_path
@@ -21,6 +21,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :status, :subject, :text, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:note).permit(:title, :status, :subject, :text, images: []).merge(user_id: current_user.id)
   end
 end

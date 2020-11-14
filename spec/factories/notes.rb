@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :note do
-    id         {"1"}
     title      {"rspec"}
     user_id    {FactoryBot.create(:user).id}
     status     {"1"}

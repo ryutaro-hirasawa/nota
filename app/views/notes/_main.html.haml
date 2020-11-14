@@ -1,5 +1,10 @@
-＜今週のピックアップノート＞
-%br
+.main
+  .main_center
+    %h1.main_center-title ＜ ピックアップノート ＞
+    .main-center_images
+      - @notes.each do |note|
+        = image_tag note.images[0]
+        %br/
 
 ＜今週のランキング＞
 %br
