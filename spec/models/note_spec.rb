@@ -2,12 +2,6 @@ require 'rails_helper'
 describe Note do
   describe '#create' do
 
-    it '必須項目が全て入力できていたら投稿可' do
-      # Image = FactoryBot.create(:image).id
-      note = build(:note)
-      expect(note).to be_valid
-    end
-
     it 'ノートタイトルがない場合は投稿不可' do
       note = build(:note, title: nil)
       note.valid?

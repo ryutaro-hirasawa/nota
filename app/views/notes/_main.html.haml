@@ -3,8 +3,17 @@
     %h1.main_center-title ＜ ピックアップノート ＞
     .main-center_images
       - @notes.each do |note|
-        = image_tag note.images[0]
-        %br/
-
-＜今週のランキング＞
-%br
+        .main-center_images_image
+          - if user_signed_in?
+            = link_to '#' do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main-center_images_title
+                = note.title
+          - else
+            = link_to new_user_registration_path do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              = note.title
+    %br
+    %h1.main_center-title＜今週のランキング＞

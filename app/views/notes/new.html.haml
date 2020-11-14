@@ -27,12 +27,12 @@
         = f.label :対象, class: "new_note_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.select :status, {'小学生': 1, '中学生': 2, '高校生': 3, '大学生': 4, '社会人': 5}, { include_blank: '選択してください'}, { class: 'note_status_form' , required: true }
+        = f.select :status, ['小学生', '中学生', '高校生', '大学生', '社会人'], { include_blank: '選択してください'}, { class: 'note_status_form' , required: true }
       .field
         = f.label :科目, class: "new_note_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.select :subject, {'英語': 1, '数学': 2, '国語': 3, '理科': 4, '社会': 5}, { include_blank: '選択してください'}, { class: 'note_subject_form' , required: true }
+        = f.select :subject, ['英語', '数学', '国語', '理科', '社会'], { include_blank: '選択してください'}, { class: 'note_subject_form' , required: true }
       .field
         = f.label :ノート説明, class: "new_note_info"
         %span.sign-up-content__main__form__group__require 必須

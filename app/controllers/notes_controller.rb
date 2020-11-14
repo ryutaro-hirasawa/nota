@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.includes(:images).order('created_at DESC')
+    @notes = Note.all.order('created_at DESC')
   end
 
   def new
