@@ -1,0 +1,45 @@
+= render "notes/header"
+.main
+  .main_left
+    %dl#main_left_acmenu
+      %dt ・メイン
+      %dd
+        = link_to 'トップページ', root_path, class: 'leftmenu'
+        %br
+        = link_to "マイページ", "/users/#{current_user.id}", class: "leftmenu"
+        %br
+        = link_to '新規投稿', new_note_path, class: "leftmenu"
+        %br
+        = link_to 'お問い合わせ', '＃', class: 'leftmenu'
+      %dt ・各種設定
+      %dd
+        = link_to 'ユーザー情報の編集', '＃', class: 'leftmenu'
+        %br
+        = link_to 'ログアウト', destroy_user_session_path, class: "leftmenu"
+
+  .main_right
+    .main_right_contents
+      %h.main_right_user= current_user.nickname
+      さんのノート一覧
+      .main_right_images
+        - @notes.each do |note|
+          .main_right_images_image
+            = link_to '#' do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main_right_images_title
+                = note.title
+    .main_right_contents
+      %h.main_right_user= current_user.nickname
+      さんのお気に入りノート一覧
+      .main_right_favorites
+        - @notes.each do |note|
+          .main_right_favorites_favorite
+            = link_to '#' do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main_right_ifavorites_title
+                = note.title
+
+= render "notes/appbanner"
+= render "notes/footer"
