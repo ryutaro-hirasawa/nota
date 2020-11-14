@@ -1,0 +1,33 @@
+.main{
+  background-color: #f8f8f8;
+
+  .main_center{
+    padding: 50px 250px;
+
+    &-title{
+      font-size: 36px;
+      color: skyblue;
+      text-align: center;
+    }
+
+    .main-center_images{
+      max-width: 1140px;
+      overflow: scroll;
+      display: flex;
+      padding: 30px 0px;
+
+      &_image{
+        padding: 0 15px;
+        &:hover {
+          filter: opacity(0.4);
+        }
+      }
+
+      &_title{
+        text-align: center;
+      }
+    }
+
+  }
+
+}
