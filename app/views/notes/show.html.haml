@@ -21,6 +21,12 @@
         - @notes.images.each do |image ,i|
           .main_right_contents_images_image
             = image_tag image, width:"400",height:"350"
+      %h ＜ ノート説明 ＞
+      .main_right_contents_text
+        =@notes.text
+      .main_right_contents_btn
+        - if @notes.user_id == current_user.id
+          = link_to '削除', @notes, method: :delete, class: "delete_btn", data: { confirm: '削除しますか?' }
     .main_right_functions
       .main_right_favotite
         %h お気に入り

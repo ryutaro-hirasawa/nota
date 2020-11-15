@@ -26,5 +26,30 @@
         }
       }
     }
+
+    &_text{
+      background-color: #ffffff;
+      border: solid 1px;
+      padding-top: 10px;
+      margin-top: 10px;
+      height: 20vh;
+      overflow: scroll;
+      &:hover {
+        filter: opacity(0.6);
+      }
+    }
+
+    &_btn{
+      margin: 30px 0;
+    }
+
+    .delete_btn{
+      padding: 10px;
+      border: solid 1px;
+      background-color: steelblue;
+      &:hover {
+        filter: opacity(0.8);
+      }
+    }
   }
 }
