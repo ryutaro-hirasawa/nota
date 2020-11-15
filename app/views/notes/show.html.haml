@@ -1,0 +1,30 @@
+= render "notes/header"
+.main
+  = render "users/left"
+
+  .main_right
+    .main_right_contents
+      .main_right_contents_title
+        = @notes.title
+        %h の詳細
+      .main_right_contents_content
+        .main_right_contents_name
+          %h 投稿者：
+          = @notes.user.nickname
+        .main_right_contents_status
+          %h 対象：
+          = @notes.status
+        .main_right_contents_subject
+          %h 科目：
+          = @notes.subject
+      .main_right_contents_images
+        - @notes.images.each do |image ,i|
+          .main_right_contents_images_image
+            = image_tag image, width:"300",height:"250"
+    .main_right_functions
+      .main_right_favotite
+        %h お気に入り
+      .main_right_comment
+        %h ＜ コメント一覧 ＞
+= render "notes/appbanner"
+= render "notes/footer"

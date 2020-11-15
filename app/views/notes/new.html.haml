@@ -12,7 +12,6 @@
         = f.label :ノート画像（最大4枚まで投稿可能）, class: "new_note_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        -# = f.file_field :images, multiple: true
         #image_box
           .note-num-0#image-box__container
             = f.fields_for :images do |i|
