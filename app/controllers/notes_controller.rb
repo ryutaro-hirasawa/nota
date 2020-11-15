@@ -9,13 +9,16 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    # binding.pry
     if @note.valid?
       @note.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @notes = Note.find(params[:id])
   end
 
   private

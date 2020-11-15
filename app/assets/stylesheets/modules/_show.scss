@@ -1,0 +1,30 @@
+.main_right{
+  &_contents{
+    &_title {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    &_content{
+      padding: 10px 0;
+    }
+    &_images{
+      margin: 20px 0;
+      border: solid 1px;
+      background-color: #ffffff;
+      display: flex;
+      flex-wrap:wrap;
+      height: 80vh;
+      overflow: scroll;
+      &_image{
+        width:50%;
+        margin-top: 15px;
+        &:hover {
+          filter: opacity(0.6);
+        }
+        img:active {
+          zoom: 1.8;
+        }
+      }
+    }
+  }
+}

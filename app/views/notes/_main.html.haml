@@ -5,7 +5,7 @@
       - @notes.each do |note|
         .main-center_images_image
           - if user_signed_in?
-            = link_to '#' do
+            = link_to "notes/#{note.id}" do
               = image_tag note.images[0], width:"184",height:"150"
               %br
               .main-center_images_title
