@@ -22,6 +22,7 @@
           .main_right_contents_images_image
             = image_tag image, width:"400",height:"350"
       %h ＜ ノート説明 ＞
+      %i.fas.fa-arrow-circle-down
       .main_right_contents_text
         =@notes.text
       .main_right_contents_btn
@@ -31,6 +32,21 @@
       .main_right_favotite
         %h お気に入り
       .main_right_comment
-        %h ＜ コメント一覧 ＞
+        = form_with(model:[@notes, @comment], local: true) do |f|
+          = f.text_area :text, placeholder:"コメントを入力してください", rows:"2", class:"comment_form"
+          %br
+          = f.submit "投稿する", class:"comment_btn"
+    %h ＜コメント一覧＞
+    %i.fas.fa-arrow-circle-down
+    .main_right_comments
+      - @comments.reverse.each do |c|
+        %p
+          %strong
+            = c.user.nickname
+            ：
+          = c.text
+          %br
+          コメント時間
+          = c.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M")
 = render "notes/appbanner"
 = render "notes/footer"
