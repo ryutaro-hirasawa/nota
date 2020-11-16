@@ -19,6 +19,8 @@ class NotesController < ApplicationController
 
   def show
     @notes = Note.find(params[:id])
+    @comment = Comment.new
+    @comments = @notes.comments.includes(:user)
   end
 
   def destroy

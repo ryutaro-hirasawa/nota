@@ -28,6 +28,7 @@
     }
 
     &_text{
+      display: none;
       background-color: #ffffff;
       border: solid 1px;
       padding-top: 10px;
@@ -51,5 +52,48 @@
         filter: opacity(0.8);
       }
     }
+  }
+
+  &_comment{
+    padding: 30px 0;
+
+    .comment_form{
+      padding: 5px;
+      width: 80%;
+      border: solid 1px;
+      &:hover {
+        filter: opacity(0.8);
+      }
+    }
+  }
+
+  &_comments{
+    display: none;
+    margin-top: 10px;
+    border: solid 1px;
+    height: 30vh;
+    overflow: scroll;
+    text-align: left;
+    background-color:#ffffff;
+    &:hover {
+      filter: opacity(0.8);
+    }
+  }
+
+  .fas.fa-arrow-circle-down{
+    font-size: 20px;
+    padding-left: 5px;
+    &:hover {
+      filter: opacity(0.5);
+    }
+  }
+
+  p{
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  strong{
+    color: skyblue;
   }
 }
