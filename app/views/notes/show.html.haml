@@ -30,7 +30,8 @@
           = link_to '削除', @notes, method: :delete, class: "delete_btn", data: { confirm: '削除しますか?' }
     .main_right_functions
       .main_right_favotite
-        %h お気に入り
+        #favorite{ id: @notes.id }
+          = render "favorites/favorite"
       .main_right_comment
         = form_with(model:[@notes, @comment], local: true) do |f|
           = f.text_area :text, placeholder:"コメントを入力してください", rows:"2", class:"comment_form"

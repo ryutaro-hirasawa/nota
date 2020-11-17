@@ -1,0 +1,11 @@
+.favorite
+  - if !Favorite.exists?(user: current_user, note_id: @notes.id)
+    = link_to note_favorites_path(@notes), method: :post, remote: true, class: "favorite-btn" do
+      %i.fas.fa-book-open
+    %span このノートのお気に入り数:
+    = @notes.favorites.length
+  - else
+    = link_to note_favorites_path(@notes), method: :delete, remote: true, class: "favorite-btn" do
+      %i.fas.fa-book-open
+    %span このノートのお気に入り数:
+    = @notes.favorites.length
