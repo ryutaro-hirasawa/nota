@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resource :favorites, only: [:create, :destroy]
   end
-  resources :users, only: :show do
+  resources :users, only: [:show, :edit, :update] do
     get :favorites, on: :collection
   end
   get'/show/:id' => 'notes#show'
