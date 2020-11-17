@@ -1,0 +1,12 @@
+.favorite{
+  font-size: 20px;
+
+  &-btn{
+    padding: 10px;
+    border: solid 1px;
+    background-color: skyblue;
+    &:hover {
+      filter: opacity(0.8);
+    }
+  }
+}

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :nickname, :birthday ,presence: true
   has_many :notes
   has_many :comments
+  has_many :favorites, dependent: :destroy
 end

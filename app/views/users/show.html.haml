@@ -17,14 +17,19 @@
     .main_right_contents
       %h.main_right_user= current_user.nickname
       さんのお気に入りノート一覧
-      .main_right_favorites
-        - @notes.each do |note|
-          .main_right_favorites_favorite
-            = link_to "../notes/#{note.id}" do
-              = image_tag note.images[0], width:"184",height:"150"
-              %br
-              .main_right_ifavorites_title
-                = note.title
+      %i.fas.fa-arrow-circle-down
+      .main_right_content
+        .main_right_favorites
+          - if @favorites.present?
+            - @favorites.each do |f|
+              .main_right_images_image
+                = link_to "../notes/#{f.note.id}" do
+                  = image_tag f.note.images[0], width:"184",height:"150"
+                  %br
+                  .main_right_images_title
+                    = f.note.title
+          - else
+            %h1 お気に入りはまだ登録されていないです。
 
 = render "notes/appbanner"
 = render "notes/footer"
