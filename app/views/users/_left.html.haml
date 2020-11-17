@@ -11,6 +11,6 @@
       = link_to 'お問い合わせ', '＃', class: 'leftmenu'
     %dt ・各種設定
     %dd
-      = link_to 'ユーザー情報の編集', '＃', class: 'leftmenu'
+      = link_to 'ユーザー情報の編集', "/users/#{current_user.id}/edit", method: :get, class: 'leftmenu'
       %br
       = link_to 'ログアウト', destroy_user_session_path, class: "leftmenu"
