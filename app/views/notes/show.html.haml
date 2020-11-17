@@ -28,6 +28,8 @@
       .main_right_contents_btn
         - if @notes.user_id == current_user.id
           = link_to '削除', @notes, method: :delete, class: "delete_btn", data: { confirm: '削除しますか?' }
+          %br
+          = link_to '編集', "/notes/#{@notes.id}/edit", method: :get, class: "edit_btn"
     .main_right_functions
       .main_right_favotite
         #favorite{ id: @notes.id }
