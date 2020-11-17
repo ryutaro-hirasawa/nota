@@ -14,6 +14,27 @@
             = link_to new_user_registration_path do
               = image_tag note.images[0], width:"184",height:"150"
               %br
-              = note.title
+              .main-center_images_title
+                = note.title
     %br
     %h1.main_center-title＜今週のランキング＞
+    .main-center_images
+      - @all_ranks.each.with_index(1) do |note, i|
+        .main-center_images_image
+          %br
+          .text
+            第
+            = i
+            位
+          - if user_signed_in?
+            = link_to "notes/#{note.id}" do
+              = image_tag note.images[0], width:"184",height:"150"
+            %br
+            .main-center_images_title
+              = note.title
+          - else
+            = link_to new_user_registration_path do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main-center_images_title
+                = note.title
