@@ -14,3 +14,5 @@
       = link_to 'ユーザー情報の編集', "/users/#{current_user.id}/edit", method: :get, class: 'leftmenu'
       %br
       = link_to 'ログアウト', destroy_user_session_path, class: "leftmenu"
+      %br
+      = link_to '退会する', user_path(current_user.id), method: :delete, class: "leftmenu", data: { confirm: '退会しますか?' }
