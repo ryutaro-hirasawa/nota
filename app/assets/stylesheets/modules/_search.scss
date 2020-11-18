@@ -1,0 +1,25 @@
+.main{
+  background-color: #f8f8f8;
+  &-search_images{
+    background-color: #ffffff;
+    width: 85%;
+    padding: 20px 30px;
+    margin: 20px 20px;
+    border: solid 1px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap:wrap;
+    height: 80vh;
+    overflow: scroll;
+    &_image{
+      width:25%;
+      margin-top: 15px;
+      &:hover {
+        filter: opacity(0.6);
+      }
+      img:active {
+        zoom: 1.8;
+      }
+    }
+  }
+}
