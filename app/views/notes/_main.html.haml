@@ -1,6 +1,6 @@
 .main
   .main_center
-    %h1.main_center-title ＜ ピックアップノート ＞
+    %h1.main_center-title ＜ 最新ノート ＞
     .main-center_images
       - @notes.each do |note|
         .main-center_images_image
@@ -17,7 +17,25 @@
               .main-center_images_title
                 = note.title
     %br
-    %h1.main_center-title＜今週のランキング＞
+    %h1.main_center-title＜ピックアップノート＞
+    .main-center_images
+      - @random.each do |note|
+        .main-center_images_image
+          - if user_signed_in?
+            = link_to "notes/#{note.id}" do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main-center_images_title
+                = note.title
+          - else
+            = link_to new_user_registration_path do
+              = image_tag note.images[0], width:"184",height:"150"
+              %br
+              .main-center_images_title
+                = note.title
+
+    %br
+    %h1.main_center-title＜お気に入りランキング＞
     .main-center_images
       - @all_ranks.each.with_index(1) do |note, i|
         .main-center_images_image
