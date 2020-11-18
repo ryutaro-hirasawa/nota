@@ -1,6 +1,17 @@
 = render "notes/header"
 .main
-  = render "users/left"
+  .main-search
+    = search_form_for @search, url: detail_search_notes_path do |f|
+      .field
+        = f.label :対象, class: "new_note_info"
+        %br/
+        = f.select :status_eq, ['小学生', '中学生', '高校生', '大学生', '社会人'], { include_blank: '選択してください'}, { class: 'note_status_form' , required: true }
+      .field
+        = f.label :科目, class: "new_note_info"
+        %br/
+        = f.select :subject_eq, ['英語', '数学', '国語', '理科', '社会'], { include_blank: '選択してください'}, { class: 'note_subject_form' , required: true }
+      = f.submit "検索", class: "search_form_btn"
+
   .main-search_images
     - @notes.each do |note|
       .main-search_images_image

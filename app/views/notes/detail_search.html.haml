@@ -1,0 +1,32 @@
+= render "notes/header"
+.main
+  .main-search
+    = search_form_for @search, url: detail_search_notes_path do |f|
+      .field
+        = f.label :対象, class: "main-search_info"
+        %br/
+        = f.select :status_eq, ['小学生', '中学生', '高校生', '大学生', '社会人'], { include_blank: '選択してください'}, { class: 'main-search_form' , required: true }
+      .field
+        = f.label :科目, class: "main-search_info"
+        %br/
+        = f.select :subject_eq, ['英語', '数学', '国語', '理科', '社会'], { include_blank: '選択してください'}, { class: 'main-search_form' , required: true }
+      .field
+        = f.submit "検索", class: "search_form_btn"
+
+  .main-detail_search_images
+    - @notes.each do |note|
+      .main-detail_search_images_image
+        - if user_signed_in?
+          = link_to "../notes/#{note.id}" do
+            = image_tag note.images[0], width:"184",height:"150"
+            %br
+            .main-detail_search_images_title
+              = note.title
+        - else
+          = link_to new_user_registration_path do
+            = image_tag note.images[0], width:"184",height:"150"
+            %br
+            .main-detail_search_images_title
+              = note.title
+= render "notes/appbanner"
+= render "notes/footer"

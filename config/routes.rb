@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     collection do
       get 'search'
+      get 'detail_search'
     end
   end
   resources :users, only: [:show, :edit, :update, :destroy] do
