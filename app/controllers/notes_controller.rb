@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   def index
     @notes = Note.all.order('created_at DESC')
     @all_ranks = Note.find(Favorite.group(:note_id).order('count(note_id) desc').limit(5).pluck(:note_id))
+    @random = Note.order("RAND()").limit(5)
   end
 
   def new
