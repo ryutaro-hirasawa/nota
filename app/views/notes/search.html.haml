@@ -1,0 +1,20 @@
+= render "notes/header"
+.main
+  = render "users/left"
+  .main-search_images
+    - @notes.each do |note|
+      .main-search_images_image
+        - if user_signed_in?
+          = link_to "../notes/#{note.id}" do
+            = image_tag note.images[0], width:"184",height:"150"
+            %br
+            .main-search_images_title
+              = note.title
+        - else
+          = link_to new_user_registration_path do
+            = image_tag note.images[0], width:"184",height:"150"
+            %br
+            .main-center_images_title
+              = note.title
+= render "notes/appbanner"
+= render "notes/footer"

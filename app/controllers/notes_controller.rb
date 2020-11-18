@@ -40,6 +40,10 @@ class NotesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @notes = Note.search(params[:keyword])
+  end
+
   private
 
   def note_params

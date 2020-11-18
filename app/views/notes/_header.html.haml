@@ -4,10 +4,9 @@
       = link_to root_path do
         %p.title Nota
     .header_main__center
-      = form_with url: "#", local: true, method: :get, class: "search_form" do |form|
+      = form_with url: search_notes_path, local: true, method: :get, class: "search_form" do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search_form_input"
-        = button_tag type: "submit", class: "search_form_btn" do
-          %h1.searchtext 検索
+        = form.submit "検索", class: "search_form_btn"
     .header_main__right
       = link_to '詳細検索',"#", class: "search_detail"
   .header_sub

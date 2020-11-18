@@ -3,7 +3,11 @@ class Note < ApplicationRecord
   has_many_attached :images
   has_many :comments
   has_many :favorites, dependent: :destroy
-  # accepts_nested_attributes_for :images, allow_destroy: true
   validates :title, :status, :subject, :text ,presence: true
   validates :images, presence: true
+
+  def self.search(search)
+    return Note.all unless search
+    Note.where('text LIKE(?)', "%#{search}%")
+  end
 end
