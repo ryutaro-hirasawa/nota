@@ -8,7 +8,7 @@
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search_form_input"
         = form.submit "検索", class: "search_form_btn"
     .header_main__right
-      = link_to '詳細検索',"#", class: "search_detail"
+      = link_to '詳細検索', search_notes_path, class: "search_detail"
   .header_sub
     - if user_signed_in?
       .header_sub__login
