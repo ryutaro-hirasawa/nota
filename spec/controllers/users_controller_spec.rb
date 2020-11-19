@@ -18,9 +18,9 @@ describe UsersController do
   describe 'delete #destroy' do
     it "退会処理ができているか" do
       user = create(:user)
-      expect{
+      expect do
         delete :destroy, params: { id: user }
-      }.to change(User,:count).by(-1)
+      end.to change(User, :count).by(-1)
     end
   end
 end

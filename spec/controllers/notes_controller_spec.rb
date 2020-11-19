@@ -37,9 +37,9 @@ describe NotesController do
     describe 'delete #destroy' do
       it "退会処理ができているか" do
         note = create(:note)
-        expect{
+        expect do
           delete :destroy, params: { id: note }
-        }.to change(Note,:count).by(-1)
+        end.to change(Note, :count).by(-1)
       end
     end
   end
