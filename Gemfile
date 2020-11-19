@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem "factory_bot_rails"
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
