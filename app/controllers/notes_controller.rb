@@ -50,6 +50,10 @@ class NotesController < ApplicationController
 
   def search
     @notes = Note.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def detail_search
