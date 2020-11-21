@@ -44,7 +44,7 @@ belongs_to :note
 |comment|text|null:false|
 |user_id|integer|null:false,foreign_key:true|
 |note_id|integer|null:false,foreign_key:true|
-|text|text||
+|text|text|null:false|
 
 ### Association
 belongs_to :user
