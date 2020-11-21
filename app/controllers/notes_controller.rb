@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_action :detail_search
 
   def index
-    @notes = Note.all.order('created_at DESC')
+    @notes = Note.all.with_attached_images.order('created_at DESC')
     @all_ranks = Note.find(Favorite.group(:note_id).order('count(note_id) desc').limit(5).pluck(:note_id))
     @random = Note.order("RAND()").limit(5)
   end
@@ -25,7 +25,7 @@ class NotesController < ApplicationController
   end
 
   def show
-    @notes = Note.find(params[:id])
+    @notes = Note.with_attached_images.find(params[:id])
     @comment = Comment.new
     @comments = @notes.comments.includes(:user)
   end
@@ -49,7 +49,7 @@ class NotesController < ApplicationController
   end
 
   def search
-    @notes = Note.search(params[:keyword])
+    @notes = Note.with_attached_images.search(params[:keyword])
   end
 
   def detail_search
