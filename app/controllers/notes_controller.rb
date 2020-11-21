@@ -17,7 +17,9 @@ class NotesController < ApplicationController
     if @note.valid?
       @note.save
       redirect_to root_path
+      flash[:notice] = "投稿に成功しました。"
     else
+      flash[:alert] = "必須項目が抜けています。"
       render :new
     end
   end
@@ -31,6 +33,7 @@ class NotesController < ApplicationController
   def destroy
     @notes = Note.find(params[:id])
     @notes.destroy
+    flash[:notice] = "削除が完了しました。"
     redirect_to root_path
   end
 
@@ -41,6 +44,7 @@ class NotesController < ApplicationController
   def update
     @notes = Note.find(params[:id])
     @notes.update(note_params)
+    flash[:notice] = "編集に成功しました。"
     redirect_to root_path
   end
 
