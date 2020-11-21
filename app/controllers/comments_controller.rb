@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
+    flash[:notice] = "コメントを投稿しました。"
     redirect_to "/notes/#{comment.note.id}"
   end
 

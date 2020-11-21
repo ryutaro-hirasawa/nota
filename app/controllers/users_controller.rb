@@ -11,12 +11,14 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    flash[:notice] = "編集に成功しました。"
     redirect_to root_path
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:notice] = "退会処理が完了しました。"
     redirect_to root_path
   end
 
