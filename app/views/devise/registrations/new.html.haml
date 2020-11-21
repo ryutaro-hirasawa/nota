@@ -8,7 +8,7 @@
         = f.label :ニックネーム, class: "new_register_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.text_field :nickname, autofocus: true, class: "new_register_form", placeholder: "例）Nota太郎"
+        = f.text_field :nickname, autofocus: true, class: "new_register_form", placeholder: "例）Nota太郎", id: "nickname"
       .field
         = f.label :birthday,"生年月日", class: "new_register_info"
         %span.sign-up-content__main__form__group__require 必須
@@ -18,18 +18,18 @@
         = f.label :メールアドレス, class: "new_register_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "new_register_form", placeholder: "例）nota@nota.com"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "new_register_form", placeholder: "例）nota@nota.com", id: "email"
       .field
         = f.label :パスワード, class: "new_register_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.password_field :password, autocomplete: "new-password", class: "new_register_form", placeholder: "英数６文字以上での入力"
+        = f.password_field :password, autocomplete: "new-password", class: "new_register_form", placeholder: "英数６文字以上での入力", id: "password"
       .field
         = f.label :確認用パスワード, class: "new_register_info"
         %span.sign-up-content__main__form__group__require 必須
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: "new_register_form", placeholder: "英数６文字以上での入力"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "new_register_form", placeholder: "英数６文字以上での入力", id: "password_confirmation"
       .actions
-        = f.submit "登録", class: "new_register_btn"
+        = f.submit "登録", class: "new_register_btn", id: "btn"
 = render "notes/appbanner"
 = render "notes/footer"
