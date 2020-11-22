@@ -1,4 +1,6 @@
 = render "notes/header"
+- breadcrumb :search_note
+= breadcrumbs separator: " &rsaquo; "
 .main
   .main-search
     = search_form_for @search, url: detail_search_notes_path do |f|
