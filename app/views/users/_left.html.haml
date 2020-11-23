@@ -4,14 +4,14 @@
     %dd
       = link_to 'トップページ', root_path, class: 'leftmenu'
       %br
-      = link_to "マイページ", "/users/#{current_user.id}", class: "leftmenu"
+      = link_to "マイページ", user_path(current_user.id), class: "leftmenu"
       %br
       = link_to '新規投稿', new_note_path, class: "leftmenu"
       %br
       = link_to 'お問い合わせ', '＃', class: 'leftmenu'
     %dt ・各種設定
     %dd
-      = link_to 'ユーザー情報の編集', "/users/#{current_user.id}/edit", method: :get, class: 'leftmenu'
+      = link_to 'ユーザー情報の編集', edit_user_path, method: :get, class: 'leftmenu'
       %br
       = link_to 'ログアウト', destroy_user_session_path, class: "leftmenu"
       %br

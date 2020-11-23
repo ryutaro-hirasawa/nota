@@ -5,7 +5,7 @@ describe Favorite do
     it 'ログインできていたらお気に入り登録ができる' do
       favorite = build(:favorite, user: nil)
       favorite.valid?
-      expect(favorite.errors[:user]).to include("can't be blank")
+      expect(favorite.errors[:user]).to include("を入力してください")
     end
   end
 end

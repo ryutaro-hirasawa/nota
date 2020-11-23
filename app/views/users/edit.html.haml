@@ -4,13 +4,15 @@
 .main_register
   .new_register
     %h2.new_register_title ユーザー情報変更
-    = form_with(model: @user, local: true) do |f|
+    = form_with(model: current_user, local: true) do |f|
       .field
         = f.label :ニックネーム, class: "new_register_info"
+        %span.sign-up-content__main__form__group__require 必須
         %br/
         = f.text_field :nickname, autofocus: true, class: "new_register_form", placeholder: "例）Nota太郎"
       .field
         = f.label :メールアドレス, class: "new_register_info"
+        %span.sign-up-content__main__form__group__require 必須
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "new_register_form", placeholder: "例）nota@nota.com"
       .actions

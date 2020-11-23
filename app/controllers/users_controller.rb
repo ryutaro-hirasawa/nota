@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @notes = Note.with_attached_images.where(user_id: current_user.id)
-    @favorites = Favorite.where(user_id: current_user.id)
+    @favorites = Favorite.includes(:note).where(user_id: current_user.id)
   end
 
   def edit
@@ -10,8 +10,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    flash[:notice] = "編集に成功しました。"
+    if current_user == @user
+      if @user.update(user_params)
+        flash[:notice] = 'ユーザー情報を編集しました。'
+      else
+        flash[:alert] = 'ユーザー情報の編集に失敗しました。'
+      end
+    end
     redirect_to root_path
   end
 

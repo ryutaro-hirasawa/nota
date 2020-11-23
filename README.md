@@ -23,19 +23,10 @@ has_many :favorites
 
 ### Association
 belongs_to :user
-has_many :images
+has_many_attached :images
 has_many :comments
 has_many :favorites
 
-### imageテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|src|string||
-|note_id|integer|null: false|
-
-### Association
-belongs_to :note
 
 ## commentsテーブル
 

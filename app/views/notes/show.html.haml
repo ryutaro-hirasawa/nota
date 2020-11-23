@@ -44,7 +44,7 @@
     %h ＜コメント一覧＞
     %i.fas.fa-arrow-circle-down
     .main_right_comments
-      - @comments.reverse.each do |c|
+      - @comments.each do |c|
         %p
           %strong
             = c.user.nickname
@@ -52,6 +52,6 @@
           = c.text
           %br
           コメント時間
-          = c.created_at.in_time_zone('Tokyo').strftime("%Y-%m-%d %H:%M")
+          = c.created_at.strftime("%Y-%m-%d %H:%M")
 = render "notes/appbanner"
 = render "notes/footer"
