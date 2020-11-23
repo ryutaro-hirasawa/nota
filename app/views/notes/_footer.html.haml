@@ -25,6 +25,10 @@
           =link_to  "お問い合わせ"
         %li
           =link_to  "お知らせ"
+        - if user_signed_in?
+          - if current_user == @user || current_user.admin?
+            %li
+              =link_to  "管理者", admin_root_path
   .footer_logo
     =link_to root_path do
       %p © Nota
