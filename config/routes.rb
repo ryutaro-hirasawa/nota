@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     get :favorites, on: :collection
   end
-  get'/show/:id' => 'notes#show'
+  # get'/show/:id' => 'notes#show'
 end

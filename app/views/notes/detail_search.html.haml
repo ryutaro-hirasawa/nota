@@ -17,7 +17,7 @@
     - @notes.each do |note|
       .main-detail_search_images_image
         - if user_signed_in?
-          = link_to "../notes/#{note.id}" do
+          = link_to note_path(note) do
             = image_tag note.images[0], width:"184",height:"150"
             %br
             .main-detail_search_images_title

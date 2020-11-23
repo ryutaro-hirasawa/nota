@@ -47,6 +47,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
 end
 
 group :development do
@@ -69,7 +70,6 @@ group :test do
 end
 
 group :production do
-  gem 'rubocop', require: false
   gem 'unicorn', '5.4.1'
 end
 
@@ -79,7 +79,6 @@ gem 'font-awesome-sass'
 gem "gretel"
 gem 'haml-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# gem 'carrierwave'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'ransack'

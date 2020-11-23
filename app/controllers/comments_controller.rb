@@ -2,8 +2,12 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create(comment_params)
-    flash[:notice] = "コメントを投稿しました。"
-    redirect_to "/notes/#{comment.note.id}"
+    if comment.save
+      flash[:notice] = "コメントを投稿しました。"
+    else
+      flash[:alert] = "コメントを送信できませんでした"
+    end
+    redirect_to note_path(comment.note.id)
   end
 
   private
